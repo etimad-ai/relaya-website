@@ -1,0 +1,329 @@
+---
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/inter';
+import '../styles/tokens.css';
+import '../styles/landing.css';
+import mark from '../assets/mark.svg';
+
+const title = 'Relaya — the AI-native CRM that builds itself';
+const description =
+  'Relaya turns your real customer communications into evidence-grounded memory, explainable deal health, and governed agents with human approval.';
+const docs = '/introduction';
+const repo = 'https://github.com/relaya/relaya';
+
+const steps = [
+  {
+    name: 'Connect',
+    body: 'Link Gmail, Outlook, and your calendar over OAuth. Relaya reads the conversations you already have — no manual data entry to get started.',
+    tag: 'email · calendar',
+  },
+  {
+    name: 'Remember',
+    body: 'Every message and meeting becomes structured memory: commitments, objections, buying signals — each one tied to the exact quote it came from.',
+    tag: 'evidence-grounded',
+  },
+  {
+    name: 'Understand',
+    body: 'Memory and activity become signals, an explainable deal-health score, and ranked next-best-actions. Never an opaque number — always the why.',
+    tag: 'explainable',
+  },
+  {
+    name: 'Act',
+    body: 'Agents draft follow-ups and prepare briefings from the evidence. Consequential actions wait for your approval before anything leaves the building.',
+    tag: 'human-approved',
+  },
+];
+
+const features = [
+  {
+    title: 'Evidence-grounded memory',
+    body: 'Each remembered fact carries its source quote, a confidence, and whether it was observed or inferred. Confirm, correct, or reject — the record stays honest.',
+  },
+  {
+    title: 'Explainable deal health',
+    body: 'A deal-health score you can defend in a forecast review: the contributing signals, the weighting, and the evidence behind each one, laid out in the open.',
+  },
+  {
+    title: 'Governed agents',
+    body: 'Agents propose; you dispose. Every external action goes through a Propose → Approve → Execute → Receipt gate, with an immutable receipt for what happened.',
+  },
+  {
+    title: 'Real connectors',
+    body: 'Gmail and Outlook for mail — sync and send — plus Google and Microsoft calendars. Sends run after approval commits, idempotently, so nothing double-fires.',
+  },
+  {
+    title: 'Multi-workspace by design',
+    body: 'Invite teammates by role, switch between workspaces, and keep every tenant strictly isolated at the database with forced row-level security.',
+  },
+  {
+    title: 'Yours to run',
+    body: 'A single-language TypeScript codebase, provider-neutral model gateway, and OIDC auth. Point it at any LLM or identity provider — no lock-in.',
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="wrap nav__inner">
+        <a class="brand" href="/">
+          <img class="brand__mark" src={mark.src} alt="" width="26" height="26" />
+          Relaya
+        </a>
+        <nav class="nav__links" aria-label="Primary">
+          <a href="#how">How it works</a>
+          <a href="#features">Features</a>
+          <a href="#governed">Governance</a>
+          <a href={docs}>Docs</a>
+        </nav>
+        <span class="nav__spacer"></span>
+        <div class="nav__cta">
+          <a class="btn btn--ghost" href={repo}>GitHub</a>
+          <a class="btn btn--primary" href={docs}>Get started</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="wrap">
+          <span class="hero__badge">
+            <b>AI-native CRM</b> · evidence over data entry
+          </span>
+          <h1>The CRM that <span class="accent">builds itself</span> from your conversations.</h1>
+          <p class="hero__lead">
+            Relaya reads the email and calendar you already use, turns it into memory you can trust,
+            and runs agents that never act without your say-so. The pipeline fills itself — you stay
+            in control.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href={docs}>Read the docs</a>
+            <a class="btn btn--ghost" href="#how">See how it works</a>
+          </div>
+          <p class="hero__note">
+            Open source · TypeScript · run it locally with <code>npm run dev</code>.
+          </p>
+        </div>
+      </section>
+
+      <!-- Problem -->
+      <section class="section">
+        <div class="wrap problem">
+          <p class="problem__lead">
+            A CRM is only as good as what someone remembers to type into it. So most of the
+            relationship <span class="accent">never makes it in.</span>
+          </p>
+          <div class="problem__body">
+            <p>
+              The context that decides a deal — the objection raised on a call, the timeline slipping
+              in an email thread, the competitor mentioned in passing — lives in your inbox and your
+              calendar, not your CRM. Reps don't have time to transcribe it, and managers forecast
+              on a picture that's always a week stale.
+            </p>
+            <p>
+              Relaya inverts that. It treats your real communications as the source of truth,
+              extracts what matters with its evidence attached, and keeps a human in the loop for
+              anything that touches the outside world.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- How it works: pipeline -->
+      <section class="section" id="how">
+        <div class="wrap">
+          <div class="section__head">
+            <p class="eyebrow">How it works</p>
+            <h2>Four stages, one continuous loop.</h2>
+            <p>
+              Connect once and the loop runs on its own — new mail and meetings flow through
+              extraction and intelligence automatically, so what you see is always current.
+            </p>
+          </div>
+          <ol class="pipeline">
+            {
+              steps.map((s, i) => (
+                <li class="step">
+                  <h3>{s.name}</h3>
+                  <p>{s.body}</p>
+                  <span class="step__tag">{s.tag}</span>
+                  {i < steps.length - 1 && (
+                    <svg
+                      class="step__arrow"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M5 12h14m-6-6 6 6-6 6"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  )}
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </section>
+
+      <!-- Feature matrix -->
+      <section class="section" id="features">
+        <div class="wrap">
+          <div class="section__head">
+            <p class="eyebrow">What you get</p>
+            <h2>Built to be trusted, not just automated.</h2>
+            <p>
+              Every capability is designed so you can see the reasoning and keep the final call. No
+              black boxes, no silent sends.
+            </p>
+          </div>
+          <div class="features">
+            {
+              features.map((f) => (
+                <article class="feature">
+                  <svg
+                    class="feature__icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="m5 13 4 4L19 7"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <h3>{f.title}</h3>
+                  <p>{f.body}</p>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <!-- Governance / trust band -->
+      <section class="section" id="governed">
+        <div class="wrap trust">
+          <div class="section__head" style="margin-bottom:0;max-width:38ch">
+            <p class="eyebrow">Governed by design</p>
+            <h2>The AI works for you — with the brakes on.</h2>
+            <p>
+              Autonomy without accountability is a liability. Relaya is built the other way around:
+              the model proposes, the human approves, and the system keeps the receipts.
+            </p>
+          </div>
+          <ul class="trust__list">
+            {
+              [
+                [
+                  'Human approval on every send',
+                  'Consequential agent actions wait in an approval queue with the full draft. Nothing leaves without a click.',
+                ],
+                [
+                  'Immutable action receipts',
+                  'What was proposed, who approved it, and what the provider returned — recorded and update-protected.',
+                ],
+                [
+                  'Tenant isolation at the database',
+                  'Forced row-level security keyed to each workspace. A bug in the app cannot leak across tenants.',
+                ],
+                [
+                  'Provider-neutral and self-hostable',
+                  'Swap the LLM or identity provider by configuration. Your data and your keys stay yours.',
+                ],
+              ].map(([t, d]) => (
+                <li>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M12 3l7 3v5c0 4.4-3 7.5-7 9-4-1.5-7-4.6-7-9V6l7-3Z"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="m9 12 2 2 4-4"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <div>
+                    <b>{t}</b>
+                    <br />
+                    <span>{d}</span>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="wrap">
+        <div class="cta">
+          <h2>Bring your own inbox. Keep your own judgement.</h2>
+          <p>
+            Relaya is open source and runs on your machine in minutes. Read the quickstart and have
+            the whole loop — connect, remember, understand, act — running against a demo workspace.
+          </p>
+          <div class="cta__row">
+            <a class="btn btn--onDeep" href={docs}>Read the docs</a>
+            <a class="btn btn--ghostDeep" href={repo}>Star on GitHub</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footer__top">
+          <p class="footer__statement">
+            Customer evidence, transformed into governed action.
+          </p>
+          <div class="footer__col">
+            <h4>Product</h4>
+            <a href="#how">How it works</a>
+            <a href="#features">Features</a>
+            <a href="#governed">Governance</a>
+          </div>
+          <div class="footer__col">
+            <h4>Documentation</h4>
+            <a href="/introduction">Introduction</a>
+            <a href="/quickstart">Quickstart</a>
+            <a href="/concepts/architecture">Architecture</a>
+            <a href="/connectors/overview">Connectors</a>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>© {new Date().getFullYear()} Relaya. Open source.</span>
+          <a href={repo}>github.com/relaya/relaya</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

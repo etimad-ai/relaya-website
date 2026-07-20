@@ -1,0 +1,56 @@
+/* Brand-align Starlight's docs chrome with the Relaya marketing site (tokens in tokens.css). */
+
+:root {
+  --sl-font: var(--font-body);
+  --sl-font-mono: var(--font-mono);
+
+  /* Light theme */
+  --sl-color-accent: var(--color-accent);
+  --sl-color-accent-low: var(--color-accent-soft);
+  --sl-color-accent-high: var(--color-accent-strong);
+  --sl-color-text-accent: var(--color-accent-strong);
+  --sl-color-white: var(--color-ink);
+  --sl-color-black: var(--color-paper);
+  --sl-color-bg: var(--color-paper);
+  --sl-color-bg-nav: color-mix(in srgb, var(--color-paper) 84%, transparent);
+  --sl-color-bg-sidebar: var(--color-paper-2);
+  --sl-color-hairline: var(--color-line);
+  --sl-color-hairline-light: var(--color-line-soft);
+  --sl-color-gray-1: var(--color-ink);
+  --sl-color-gray-2: var(--color-ink-soft);
+  --sl-color-gray-3: var(--color-muted);
+  --sl-color-gray-5: var(--color-line);
+  --sl-color-gray-6: var(--color-paper-3);
+  --sl-color-gray-7: var(--color-paper-2);
+}
+
+/* Dark theme — reuse the deep evergreen band as the docs canvas. */
+:root[data-theme='dark'] {
+  --sl-color-accent: oklch(62% 0.12 158);
+  --sl-color-accent-low: oklch(34% 0.05 160);
+  --sl-color-accent-high: oklch(84% 0.09 158);
+  --sl-color-text-accent: oklch(80% 0.1 158);
+  --sl-color-white: var(--color-deep-ink);
+  --sl-color-bg: oklch(20% 0.02 162);
+  --sl-color-bg-nav: color-mix(in srgb, oklch(20% 0.02 162) 84%, transparent);
+  --sl-color-bg-sidebar: oklch(23% 0.025 162);
+  --sl-color-hairline: var(--color-deep-line);
+  --sl-color-gray-1: var(--color-deep-ink);
+  --sl-color-gray-2: var(--color-deep-muted);
+}
+
+.site-title {
+  font-weight: var(--weight-strong);
+  letter-spacing: -0.01em;
+}
+
+/* Docs headings use the display serif, upright, matching the marketing site. */
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+.content-panel h1 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-display);
+  font-style: normal;
+  letter-spacing: -0.015em;
+}
