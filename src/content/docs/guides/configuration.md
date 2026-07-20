@@ -63,6 +63,23 @@ Generate the key with:
 node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
 ```
 
+## Transactional email
+
+Notification delivery (invites today; approval and daily-brief emails next) is provider-neutral. In
+development the `log` transport prints emails to the console — nothing is delivered, so local dev and
+CI stay hermetic. Set `smtp` with an `SMTP_URL` to deliver for real.
+
+```bash
+EMAIL_TRANSPORT=log                 # or 'smtp'
+# SMTP_URL=smtp://user:pass@smtp.example.com:587
+# EMAIL_FROM=Relaya <no-reply@relaya.local>
+WEB_PUBLIC_URL=http://localhost:5173   # builds links (e.g. the invite accept URL)
+```
+
+Emails are delivered **through the outbox**, so they are only sent when the dispatcher is running
+(`OUTBOX_DISPATCH_ENABLED=true`). The invite link is always available to copy from the Members page
+regardless.
+
 ## The async dispatcher
 
 ```bash
@@ -70,4 +87,4 @@ OUTBOX_DISPATCH_ENABLED=false    # true runs the pipeline off the request path
 ```
 
 Leave it off in local development to trigger extraction and recompute manually; turn it on to have
-the pipeline run automatically.
+the pipeline — extraction, recompute, and notification email — run automatically.
