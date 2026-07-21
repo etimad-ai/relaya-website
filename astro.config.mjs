@@ -5,7 +5,7 @@ import starlight from '@astrojs/starlight';
 // The marketing landing lives at `/` as a custom Astro page (src/pages/index.astro).
 // Starlight owns the documentation under the routes generated from src/content/docs/**.
 export default defineConfig({
-  site: 'https://relaya.example.com',
+  site: 'https://relayahq.com',
   integrations: [
     starlight({
       title: 'Relaya',
