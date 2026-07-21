@@ -55,8 +55,8 @@ const features = [
     body: 'Invite teammates by role, switch between workspaces, and keep every tenant strictly isolated at the database with forced row-level security.',
   },
   {
-    title: 'Yours to run',
-    body: 'A single-language TypeScript codebase, provider-neutral model gateway, and OIDC auth. Point it at any LLM or identity provider — no lock-in.',
+    title: 'Your data stays yours',
+    body: 'Sign in with your own identity provider — no passwords stored. Connected mailboxes are encrypted, and you can disconnect or delete your data whenever you choose.',
   },
 ];
 ---
@@ -111,7 +111,7 @@ const features = [
             <a class="btn btn--ghost" href="#how">See how it works</a>
           </div>
           <p class="hero__note">
-            Open source · Hosted and secure · Your data stays yours.
+            Hosted and secure · Human-approved agents · Your data stays yours.
           </p>
         </div>
       </section>
@@ -249,8 +249,8 @@ const features = [
                   'Forced row-level security keyed to each workspace. A bug in the app cannot leak across tenants.',
                 ],
                 [
-                  'Provider-neutral and self-hostable',
-                  'Swap the LLM or identity provider by configuration. Your data and your keys stay yours.',
+                  'Password-less sign-in',
+                  'Authenticate through your own identity provider. Relaya never asks for, sees, or stores a password.',
                 ],
               ].map(([t, d]) => (
                 <li>
@@ -286,8 +286,9 @@ const features = [
         <div class="cta">
           <h2>Bring your own inbox. Keep your own judgement.</h2>
           <p>
-            Relaya is open source and runs on your machine in minutes. Read the quickstart and have
-            the whole loop — connect, remember, understand, act — running against a demo workspace.
+            Connect your email and calendar, and Relaya builds the whole loop — connect, remember,
+            understand, act — from the conversations you already have. You stay in control at every
+            step.
           </p>
           <div class="cta__row">
             <a class="btn btn--onDeep" href={docs}>Read the docs</a>
@@ -317,7 +318,7 @@ const features = [
           </div>
         </div>
         <div class="footer__bottom">
-          <span>© {new Date().getFullYear()} Relaya. Open source.</span>
+          <span>© {new Date().getFullYear()} Relaya. All rights reserved.</span>
         </div>
       </div>
     </footer>
