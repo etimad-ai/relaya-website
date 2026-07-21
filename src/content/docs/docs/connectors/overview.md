@@ -43,5 +43,5 @@ Disconnecting a connector makes a best-effort token revocation with the provider
 credentials, and marks the connection inactive. Historical interactions are retained; only the
 ability to sync or send is removed.
 
-See [Gmail & Outlook](/connectors/mail) and [Calendar](/connectors/calendar) for the specifics of
+See [Gmail & Outlook](/docs/connectors/mail) and [Calendar](/docs/connectors/calendar) for the specifics of
 each.

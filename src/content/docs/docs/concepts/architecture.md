@@ -45,5 +45,5 @@ extraction and recompute manually to watch each stage happen.
 - Derived data (signals, recommendations) is recomputable and self-healing.
 - An append-only audit log records every mutation.
 
-See [Tenancy & security](/concepts/tenancy-and-security) for how isolation is enforced, and
-[Memory & intelligence](/concepts/memory-and-intelligence) for what the pipeline produces.
+See [Tenancy & security](/docs/concepts/tenancy-and-security) for how isolation is enforced, and
+[Memory & intelligence](/docs/concepts/memory-and-intelligence) for what the pipeline produces.

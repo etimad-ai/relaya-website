@@ -49,7 +49,7 @@ or anything else that speaks the protocol.
 ## Connectors
 
 Mail and calendar connectors reuse one OAuth client per provider. See
-[Gmail & Outlook](/connectors/mail) and [Calendar](/connectors/calendar) for the client setup, plus:
+[Gmail & Outlook](/docs/connectors/mail) and [Calendar](/docs/connectors/calendar) for the client setup, plus:
 
 ```bash
 # Encrypts connector OAuth tokens at rest, and signs the short-lived OAuth state.

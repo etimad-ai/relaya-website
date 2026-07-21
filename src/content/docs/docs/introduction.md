@@ -42,6 +42,6 @@ automatically.
 
 ## Where to next
 
-- [Quickstart](/quickstart) — get the whole stack running locally against a demo workspace.
-- [Architecture](/concepts/architecture) — how the modular monolith is put together.
-- [Connectors](/connectors/overview) — connect real Gmail, Outlook, and calendars.
+- [Quickstart](/docs/quickstart) — get the whole stack running locally against a demo workspace.
+- [Architecture](/docs/concepts/architecture) — how the modular monolith is put together.
+- [Connectors](/docs/connectors/overview) — connect real Gmail, Outlook, and calendars.

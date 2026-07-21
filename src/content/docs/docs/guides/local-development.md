@@ -3,7 +3,7 @@ title: Run it locally
 description: A fuller tour of running Relaya on your machine, including the async pipeline and tests.
 ---
 
-The [Quickstart](/quickstart) gets you signed in fast. This guide fills in the rest: the async
+The [Quickstart](/docs/quickstart) gets you signed in fast. This guide fills in the rest: the async
 pipeline, the demo walkthrough, and the test suites.
 
 ## Services and ports

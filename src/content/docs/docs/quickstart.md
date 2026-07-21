@@ -60,7 +60,7 @@ With the fixture mailbox seeded, drive the pipeline from the UI:
 4. Open an **Opportunity** to see the explainable score, then run **Draft follow-up** and approve
    the proposed email from **Approvals**.
 
-To connect a real mailbox or calendar instead of the fixture, see [Connectors](/connectors/overview).
+To connect a real mailbox or calendar instead of the fixture, see [Connectors](/docs/connectors/overview).
 
 ## Verify everything
 

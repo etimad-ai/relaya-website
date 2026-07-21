@@ -8,8 +8,7 @@ import mark from '../assets/mark.svg';
 const title = 'Relaya — the AI-native CRM that builds itself';
 const description =
   'Relaya turns your real customer communications into evidence-grounded memory, explainable deal health, and governed agents with human approval.';
-const docs = '/introduction';
-const repo = 'https://github.com/relaya/relaya';
+const docs = '/docs/introduction';
 
 const steps = [
   {
@@ -89,7 +88,6 @@ const features = [
         </nav>
         <span class="nav__spacer"></span>
         <div class="nav__cta">
-          <a class="btn btn--ghost" href={repo}>GitHub</a>
           <a class="btn btn--primary" href={docs}>Get started</a>
         </div>
       </div>
@@ -293,7 +291,6 @@ const features = [
           </p>
           <div class="cta__row">
             <a class="btn btn--onDeep" href={docs}>Read the docs</a>
-            <a class="btn btn--ghostDeep" href={repo}>Star on GitHub</a>
           </div>
         </div>
       </section>
@@ -313,15 +310,14 @@ const features = [
           </div>
           <div class="footer__col">
             <h4>Documentation</h4>
-            <a href="/introduction">Introduction</a>
-            <a href="/quickstart">Quickstart</a>
-            <a href="/concepts/architecture">Architecture</a>
-            <a href="/connectors/overview">Connectors</a>
+            <a href="/docs/introduction">Introduction</a>
+            <a href="/docs/quickstart">Quickstart</a>
+            <a href="/docs/concepts/architecture">Architecture</a>
+            <a href="/docs/connectors/overview">Connectors</a>
           </div>
         </div>
         <div class="footer__bottom">
           <span>© {new Date().getFullYear()} Relaya. Open source.</span>
-          <a href={repo}>github.com/relaya/relaya</a>
         </div>
       </div>
     </footer>
