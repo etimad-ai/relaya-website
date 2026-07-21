@@ -1,47 +1,29 @@
 ---
-title: Introduction
-description: What Relaya is, the idea behind an AI-native CRM, and how the pieces fit together.
+title: Welcome to Relaya
+description: Relaya is an AI-native CRM that builds itself from your real customer conversations.
 ---
 
-Relaya is an **AI-native CRM**: instead of asking your team to type the relationship into a
-database, it builds itself from the communications you already have. Connect email and calendar,
-and Relaya reads those conversations, extracts what matters with the evidence attached, and turns it
-into memory, deal health, and next-best-actions — while keeping a human in control of anything
-consequential.
+Relaya is a CRM that builds itself from the conversations you already have. Connect your work email and calendar, and Relaya turns that real customer evidence into organized accounts and contacts, a live deal pipeline, explainable deal health, and a prioritized list of what needs your attention — without you filling in forms.
 
-## The core idea
+## What makes Relaya different
 
-A traditional CRM is a system of *record*: someone remembers to log a call, update a stage, note an
-objection. In practice most of the relationship never gets entered, and the pipeline is always a
-little out of date.
+- **It starts from evidence, not data entry.** Your emails and meetings become the record. Relaya proposes the accounts, contacts, and deals; you confirm what matters.
+- **Every insight is explainable.** Deal health is a score you can open up and trace back to the exact messages behind it — never an opaque number.
+- **Agents draft, humans decide.** Relaya can prepare follow-ups and next steps, but anything that leaves your workspace waits for your approval. See [Approvals](/docs/using/approvals).
 
-Relaya is a system of *evidence*. Your real messages and meetings are the source of truth. The
-product's job is to understand them — faithfully, with citations — and to act only within bounds you
-set.
+## Get set up in three steps
 
-## The loop
+1. **[Sign in & create your workspace](/docs/sign-in)** — sign in with your work email; your workspace is where your team's customer memory lives.
+2. **[Connect email & calendar](/docs/connect-email-calendar)** — the moment a mailbox is connected, Relaya begins building context.
+3. **Reach your first brief** — open [Today](/docs/using/today) and act on the first prioritized items Relaya surfaces.
 
-Everything in Relaya runs on one continuous loop:
+## Find your way around
 
-1. **Connect** — link Gmail, Outlook, and calendars over OAuth.
-2. **Remember** — each message and meeting becomes structured, evidence-grounded memory.
-3. **Understand** — memory and activity become signals, an explainable deal-health score, and
-   ranked recommendations.
-4. **Act** — agents draft follow-ups and briefings; consequential actions wait for your approval.
+- **[Today](/docs/using/today)** — your prioritized focus queue for the day.
+- **[Deals & pipeline](/docs/using/pipeline)** — every open opportunity, with health you can trust.
+- **[Accounts & contacts](/docs/using/accounts-contacts)** — the companies and people you work with.
+- **[Trust & privacy](/docs/trust/security)** — how your data is protected and handled.
 
-Connect once and the loop is self-sustaining: new activity flows through extraction and intelligence
-automatically.
-
-## Principles
-
-- **Evidence over data entry.** Every remembered fact links back to the quote it came from.
-- **Explainable, never opaque.** Deal health shows its signals and weighting — no black-box score.
-- **Governed by design.** The model proposes; a human approves; the system keeps immutable receipts.
-- **Yours to run.** Single-language TypeScript, a provider-neutral model gateway, and standard OIDC
-  auth. Point it at any LLM or identity provider.
-
-## Where to next
-
-- [Quickstart](/docs/quickstart) — get the whole stack running locally against a demo workspace.
-- [Architecture](/docs/concepts/architecture) — how the modular monolith is put together.
-- [Connectors](/docs/connectors/overview) — connect real Gmail, Outlook, and calendars.
+:::note
+Relaya is currently offered as a private pilot. If you'd like access, or you're an invited teammate, see [Sign in & your workspace](/docs/sign-in).
+:::

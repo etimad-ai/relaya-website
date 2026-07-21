@@ -100,11 +100,11 @@ a {
   border-color: var(--color-ink-soft);
 }
 .btn--onDeep {
-  background: var(--color-deep-ink);
-  color: var(--color-deep);
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
 }
 .btn--onDeep:hover {
-  background: var(--color-accent-soft);
+  background: var(--color-accent-strong);
 }
 .btn--ghostDeep {
   border-color: var(--color-deep-line);
@@ -182,12 +182,11 @@ a {
 .hero {
   padding-block: var(--space-9) var(--space-8);
   border-bottom: var(--rule-soft);
-  background:
-    radial-gradient(
-      120% 80% at 82% -10%,
-      var(--color-accent-soft),
-      transparent 55%
-    );
+  background: radial-gradient(
+    120% 80% at 82% -10%,
+    var(--color-accent-soft),
+    transparent 55%
+  );
 }
 .hero__badge {
   display: inline-flex;

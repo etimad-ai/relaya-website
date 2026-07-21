@@ -15,48 +15,55 @@ export default defineConfig({
         "Relaya turns your real customer communications into evidence-grounded memory, explainable deal health, and governed agents with human approval.",
       customCss: ["./src/styles/tokens.css", "./src/styles/starlight.css"],
       logo: { src: "./src/assets/mark.svg", replacesTitle: false },
-      // Link back to the marketing home from the docs header.
-      components: {},
+      // Dark-only docs, matching the product: replace the theme toggle with an empty component.
+      components: {
+        ThemeSelect: "./src/components/ThemeSelect.astro",
+      },
       sidebar: [
         {
-          label: "Start here",
+          label: "Get started",
           items: [
-            { label: "Introduction", slug: "docs/introduction" },
-            { label: "Quickstart", slug: "docs/quickstart" },
-          ],
-        },
-        {
-          label: "Concepts",
-          items: [
-            { label: "Architecture", slug: "docs/concepts/architecture" },
+            { label: "Welcome to Relaya", slug: "docs/introduction" },
+            { label: "Sign in & your workspace", slug: "docs/sign-in" },
             {
-              label: "Memory & intelligence",
-              slug: "docs/concepts/memory-and-intelligence",
-            },
-            {
-              label: "Agents & approvals",
-              slug: "docs/concepts/agents-and-approvals",
-            },
-            {
-              label: "Tenancy & security",
-              slug: "docs/concepts/tenancy-and-security",
+              label: "Connect email & calendar",
+              slug: "docs/connect-email-calendar",
             },
           ],
         },
         {
-          label: "Connectors",
+          label: "Using Relaya",
           items: [
-            { label: "Overview", slug: "docs/connectors/overview" },
-            { label: "Gmail & Outlook", slug: "docs/connectors/mail" },
-            { label: "Calendar", slug: "docs/connectors/calendar" },
+            { label: "Your day in Today", slug: "docs/using/today" },
+            { label: "Deals & pipeline", slug: "docs/using/pipeline" },
+            {
+              label: "Accounts & contacts",
+              slug: "docs/using/accounts-contacts",
+            },
+            { label: "Tasks", slug: "docs/using/tasks" },
+            {
+              label: "Approvals & governed agents",
+              slug: "docs/using/approvals",
+            },
+            { label: "Import your data", slug: "docs/using/import" },
+            { label: "Invite your team", slug: "docs/using/team" },
           ],
         },
         {
-          label: "Guides",
+          label: "How it works",
+          items: [{ label: "How Relaya works", slug: "docs/how-relaya-works" }],
+        },
+        {
+          label: "Trust & privacy",
           items: [
-            { label: "Run it locally", slug: "docs/guides/local-development" },
-            { label: "Configuration", slug: "docs/guides/configuration" },
+            { label: "Security", slug: "docs/trust/security" },
+            { label: "Privacy", slug: "docs/trust/privacy" },
+            { label: "Your data", slug: "docs/trust/data" },
           ],
+        },
+        {
+          label: "Support",
+          items: [{ label: "Get help", slug: "docs/support" }],
         },
       ],
     }),
