@@ -9,6 +9,7 @@ const title = 'Relaya — the AI-native CRM that builds itself';
 const description =
   'Relaya turns your real customer communications into evidence-grounded memory, explainable deal health, and governed agents with human approval.';
 const docs = '/docs/introduction';
+const app = 'https://app.relayahq.com/login';
 
 const steps = [
   {
@@ -88,7 +89,7 @@ const features = [
         </nav>
         <span class="nav__spacer"></span>
         <div class="nav__cta">
-          <a class="btn btn--primary" href={docs}>Get started</a>
+          <a class="btn btn--primary" href={app}>Get started</a>
         </div>
       </div>
     </header>
@@ -107,8 +108,8 @@ const features = [
             in control.
           </p>
           <div class="hero__cta">
-            <a class="btn btn--primary" href={docs}>Read the docs</a>
-            <a class="btn btn--ghost" href="#how">See how it works</a>
+            <a class="btn btn--primary" href={app}>Get started</a>
+            <a class="btn btn--ghost" href={docs}>Read the docs</a>
           </div>
           <p class="hero__note">
             Hosted and secure · Human-approved agents · Your data stays yours.
@@ -291,7 +292,8 @@ const features = [
             step.
           </p>
           <div class="cta__row">
-            <a class="btn btn--onDeep" href={docs}>Read the docs</a>
+            <a class="btn btn--onDeep" href={app}>Get started</a>
+            <a class="btn btn--ghostDeep" href={docs}>Read the docs</a>
           </div>
         </div>
       </section>
