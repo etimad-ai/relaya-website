@@ -1,0 +1,268 @@
+---
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/inter';
+import '../styles/tokens.css';
+import '../styles/landing.css';
+import mark from '../assets/mark.svg';
+
+const title = 'Why Relaya — the CRM that keeps its own data clean';
+const description =
+  'Everyone is bolting agents onto CRM. They fail on stale, dirty data. Relaya starts one layer down — a CRM that builds itself from your conversations and keeps every inference tied to evidence.';
+const docs = '/docs/introduction';
+const app = 'https://app.relayahq.com/login';
+
+const pillars = [
+  {
+    tag: 'Self-building',
+    title: 'Grown, not imported',
+    body: 'Accounts, contacts, and memory form from the email and calendar you already use — and evidence re-attaches itself whenever a record is created. Nothing is imported once and left to rot.',
+  },
+  {
+    tag: 'Human-confirmed',
+    title: 'Nothing guessed into existence',
+    body: 'Low-confidence identities are suggested, never auto-created. Memory supersedes rather than piling up stale facts. A person stays the author of the record.',
+  },
+  {
+    tag: 'Explainable',
+    title: 'Every output cites its evidence',
+    body: 'Deal health shows the interactions behind the number, not an opaque score. An immutable trail makes the reasoning traceable back to the exact conversation it came from.',
+  },
+];
+
+const boundaries = [
+  {
+    title: 'No silent scraping into records',
+    body: 'Relaya works from your first-party conversations. Any external context is clearly labeled as inferred — never written in as fact.',
+  },
+  {
+    title: 'No autonomous sends',
+    body: 'Agents draft; a person approves. Consequential actions wait behind a review gate before anything leaves the building.',
+  },
+  {
+    title: 'No opaque scores',
+    body: 'If Relaya concludes something, it shows the evidence and the confidence. You can confirm, correct, or reject it.',
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="wrap nav__inner">
+        <a class="brand" href="/">
+          <img class="brand__mark" src={mark.src} alt="" width="26" height="26" />
+          Relaya
+        </a>
+        <nav class="nav__links" aria-label="Primary">
+          <a href="/why">Why Relaya</a>
+          <a href="/#how">How it works</a>
+          <a href="/#features">Features</a>
+          <a href={docs}>Docs</a>
+        </nav>
+        <span class="nav__spacer"></span>
+        <div class="nav__cta">
+          <a class="btn btn--primary" href={app}>Get started</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero: the thesis -->
+      <section class="section why-hero">
+        <div class="wrap">
+          <p class="eyebrow">Why Relaya</p>
+          <h1 class="why-hero__title">
+            The CRM that keeps its own data clean enough for agents to <span class="accent"
+              >trust</span
+            >.
+          </h1>
+          <p class="why-hero__lead">
+            Everyone is racing to bolt autonomous agents onto CRM. The failure mode is always the
+            same — agents acting on stale, half-empty records. Relaya starts one layer down: a CRM
+            that builds itself from your real conversations and keeps every inference tied to
+            evidence, so the intelligence on top has something worth reasoning over.
+          </p>
+        </div>
+      </section>
+
+      <!-- The shift -->
+      <section class="section">
+        <div class="wrap">
+          <div class="problem">
+            <p class="problem__lead">
+              The hard part was never adding AI. It's giving the AI <span class="accent"
+                >data worth trusting</span
+              >.
+            </p>
+            <div class="problem__body">
+              <p>
+                Dirty, decaying data is the number-one reason agent projects stall. A CRM full of
+                half-remembered notes and records nobody updated doesn't get better because you put
+                an agent on top of it — it gets confidently wrong, faster.
+              </p>
+              <p>
+                Most tools sell you the agent and warn you about your data. Relaya makes the data the
+                product. The record maintains itself from the conversations you're already having, so
+                there's no data-entry tax to pay and no rot to clean up later.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- The wedge: three pillars -->
+      <section class="section">
+        <div class="wrap">
+          <div class="section__head">
+            <p class="eyebrow">How it stays clean</p>
+            <h2>The loop that maintains itself.</h2>
+            <p>
+              Three principles keep the record honest without anyone babysitting it — and keep every
+              conclusion tied to the evidence behind it.
+            </p>
+          </div>
+          <div class="features">
+            {
+              pillars.map((p) => (
+                <article class="feature">
+                  <p class="step__tag">{p.tag}</p>
+                  <h3>{p.title}</h3>
+                  <p>{p.body}</p>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <!-- Governed autonomy -->
+      <section class="section" id="governed">
+        <div class="wrap">
+          <div class="problem">
+            <p class="problem__lead">
+              Autonomous where it should be. <span class="accent">Accountable</span> where it matters.
+            </p>
+            <div class="problem__body">
+              <p>
+                Relaya reads and reasons on its own — extracting memory from every conversation and
+                keeping deal health current in the background, without being asked. That's the part
+                that should be automatic.
+              </p>
+              <p>
+                But it never sends an external message on its own. Agents draft the follow-up and
+                prepare the briefing; a person approves before anything goes out, and an immutable
+                receipt records exactly what happened. Autonomy you can actually put in front of a
+                customer.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Deliberate boundaries -->
+      <section class="section">
+        <div class="wrap">
+          <div class="section__head">
+            <p class="eyebrow">On purpose</p>
+            <h2>What Relaya won't do.</h2>
+            <p>Focus is a feature. These are deliberate boundaries that keep the record trustworthy.</p>
+          </div>
+          <div class="features">
+            {
+              boundaries.map((b) => (
+                <article class="feature">
+                  <h3>{b.title}</h3>
+                  <p>{b.body}</p>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section">
+        <div class="wrap">
+          <div class="cta">
+            <h2>A CRM that stays clean enough to trust an agent — and shows its work.</h2>
+            <p>
+              For teams that run on email and are tired of a CRM that rots the moment data entry
+              slips. Bring your inbox; Relaya does the upkeep.
+            </p>
+            <div class="cta__row">
+              <a class="btn btn--onDeep" href={app}>Get started</a>
+              <a class="btn btn--ghostDeep" href={docs}>Read the docs</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footer__top">
+          <p class="footer__statement">Customer evidence, transformed into governed action.</p>
+          <div class="footer__col">
+            <h4>Product</h4>
+            <a href="/why">Why Relaya</a>
+            <a href="/#how">How it works</a>
+            <a href="/#features">Features</a>
+            <a href="/#governed">Governance</a>
+          </div>
+          <div class="footer__col">
+            <h4>Documentation</h4>
+            <a href="/docs/introduction">Welcome</a>
+            <a href="/docs/sign-in">Get started</a>
+            <a href="/docs/using/today">Using Relaya</a>
+            <a href="/docs/trust/security">Trust &amp; privacy</a>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>© {new Date().getFullYear()} Relaya. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      /* Why-page hero: reuses the token system; a touch more air than a mid-page section. */
+      .why-hero {
+        padding-top: var(--space-9);
+      }
+      .why-hero__title {
+        font-family: var(--font-display);
+        font-weight: var(--weight-display);
+        font-size: var(--text-hero);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        max-width: 18ch;
+        margin: var(--space-4) 0 0;
+      }
+      .why-hero__title .accent {
+        color: var(--color-accent-strong);
+        font-style: italic;
+      }
+      .why-hero__lead {
+        max-width: 60ch;
+        margin: var(--space-6) 0 0;
+        font-size: var(--text-lead);
+        line-height: 1.55;
+        color: var(--color-ink-soft);
+      }
+      /* Pillar tag reuses the step tag's treatment as a small eyebrow inside the card. */
+      .features .step__tag {
+        margin: 0 0 var(--space-3);
+      }
+    </style>
+  </body>
+</html>
