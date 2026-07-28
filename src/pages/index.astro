@@ -9,7 +9,9 @@ const title = 'Relaya — the AI-native CRM that builds itself';
 const description =
   'Relaya turns your real customer communications into evidence-grounded memory, explainable deal health, and governed agents with human approval.';
 const docs = '/docs/introduction';
-const app = 'https://app.relayahq.com/login';
+const signIn = 'https://app.relayahq.com/login';
+const pilot =
+  'mailto:support@relayahq.com?subject=Relaya%20private%20pilot&body=Hi%20Relaya%20team%2C%0A%0AI%27d%20like%20to%20learn%20more%20about%20the%20private%20pilot.%0A%0ACompany%3A%0ATeam%20size%3A%0ACurrent%20CRM%3A%0A';
 
 const steps = [
   {
@@ -49,7 +51,7 @@ const features = [
   },
   {
     title: 'Real connectors',
-    body: 'Gmail and Outlook for mail — sync and send — plus Google and Microsoft calendars. Sends run after approval commits, idempotently, so nothing double-fires.',
+    body: 'Gmail and Outlook for mail — sync and send — plus Google and Microsoft calendars. Approved sends use provider-side idempotency and recorded receipts to guard against duplicates.',
   },
   {
     title: 'Multi-workspace by design',
@@ -73,6 +75,23 @@ const features = [
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://relayahq.com/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="canonical" href="https://relayahq.com/" />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'Relaya',
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web',
+        description,
+        url: 'https://relayahq.com/',
+      })}
+    />
   </head>
   <body>
     <header class="nav">
@@ -81,15 +100,10 @@ const features = [
           <img class="brand__mark" src={mark.src} alt="" width="26" height="26" />
           Relaya
         </a>
-        <nav class="nav__links" aria-label="Primary">
-          <a href="/why">Why Relaya</a>
-          <a href="#how">How it works</a>
-          <a href="#features">Features</a>
-          <a href={docs}>Docs</a>
-        </nav>
         <span class="nav__spacer"></span>
         <div class="nav__cta">
-          <a class="btn btn--primary" href={app}>Get started</a>
+          <a class="nav__signin" href={signIn}>Sign in</a>
+          <a class="btn btn--primary" href={pilot}>Request pilot</a>
         </div>
       </div>
     </header>
@@ -99,21 +113,83 @@ const features = [
       <section class="hero">
         <div class="wrap">
           <span class="hero__badge">
-            <b>AI-native CRM</b> · evidence over data entry
+            <b>Private pilot</b> · for B2B commercial teams
           </span>
-          <h1>The CRM that <span class="accent">builds itself</span> from your conversations.</h1>
+          <h1>Know what changed in every deal.</h1>
           <p class="hero__lead">
-            Relaya reads the email and calendar you already use, turns it into memory you can trust,
-            and runs agents that never act without your say-so. The pipeline fills itself — you stay
-            in control.
+            Relaya turns email and meetings into evidence-backed customer memory, explainable deal
+            health, and the next action to take. You confirm what becomes record; nothing is sent
+            without approval.
           </p>
           <div class="hero__cta">
-            <a class="btn btn--primary" href={app}>Get started</a>
-            <a class="btn btn--ghost" href={docs}>Read the docs</a>
+            <a class="btn btn--primary" href={pilot}>Request pilot</a>
+            <a class="btn btn--ghost" href="#evidence-flow">See the evidence flow</a>
           </div>
-          <p class="hero__note">
-            Hosted and secure · Human-approved agents · Your data stays yours.
-          </p>
+          <div class="hero__trust" aria-label="Trust and product information">
+            <a href="/docs/trust/security">Security</a>
+            <a href="/docs/trust/privacy">Privacy</a>
+            <a href="/docs/trust/data">Data handling</a>
+            <a href={docs}>Product docs</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Evidence-to-action map -->
+      <section class="section proof" id="evidence-flow">
+        <div class="wrap">
+          <div class="proof__intro">
+            <div>
+              <p class="proof__label">An illustrative interaction</p>
+              <h2>From one customer message to the next responsible move.</h2>
+            </div>
+            <p>
+              Relaya keeps the source, interpretation, and proposed response distinct. You can
+              inspect the reasoning before anything changes or leaves your workspace.
+            </p>
+          </div>
+
+          <div class="evidence-map">
+            <article class="evidence-source">
+              <div class="evidence-source__meta">
+                <span>Email</span>
+                <span>Customer · 09:42</span>
+              </div>
+              <blockquote>
+                “We’re aligned on scope. Procurement still needs the revised pricing by Friday.”
+              </blockquote>
+              <p>Original interaction retained as evidence</p>
+            </article>
+
+            <ol class="reasoning-path" aria-label="How Relaya turns evidence into a governed action">
+              <li class="reasoning-node reasoning-node--observed">
+                <span class="reasoning-node__type">Observed fact</span>
+                <h3>Revised pricing requested by Friday.</h3>
+                <p>Directly supported by the customer’s words.</p>
+              </li>
+              <li class="reasoning-node reasoning-node--inferred">
+                <span class="reasoning-node__type">AI inference</span>
+                <h3>Commercial approval may be the current blocker.</h3>
+                <p>A hypothesis—not stored or displayed as confirmed truth.</p>
+              </li>
+              <li class="reasoning-node reasoning-node--recommended">
+                <span class="reasoning-node__type">Recommendation</span>
+                <h3>Engage procurement before another proposal revision.</h3>
+                <p>Ranked against the evidence and current deal state.</p>
+              </li>
+              <li class="reasoning-node reasoning-node--approval">
+                <span class="reasoning-node__type">Approval required</span>
+                <h3>Prepare a pricing follow-up for review.</h3>
+                <p>Nothing is sent until a person approves the final draft.</p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="proof__legend" aria-label="Evidence map legend">
+            <span><i class="legend-dot legend-dot--observed"></i> sourced</span>
+            <span><i class="legend-dot legend-dot--inferred"></i> inferred</span>
+            <span><i class="legend-dot legend-dot--recommended"></i> recommended</span>
+            <span><i class="legend-dot legend-dot--approval"></i> human-controlled</span>
+          </div>
         </div>
       </section>
 
@@ -144,7 +220,6 @@ const features = [
       <section class="section" id="how">
         <div class="wrap">
           <div class="section__head">
-            <p class="eyebrow">How it works</p>
             <h2>Four stages, one continuous loop.</h2>
             <p>
               Connect once and the loop runs on its own — new mail and meetings flow through
@@ -187,39 +262,25 @@ const features = [
       <section class="section" id="features">
         <div class="wrap">
           <div class="section__head">
-            <p class="eyebrow">What you get</p>
             <h2>Built to be trusted, not just automated.</h2>
             <p>
               Every capability is designed so you can see the reasoning and keep the final call. No
               black boxes, no silent sends.
             </p>
           </div>
-          <div class="features">
+          <dl class="capabilities">
             {
-              features.map((f) => (
-                <article class="feature">
-                  <svg
-                    class="feature__icon"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="m5 13 4 4L19 7"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <h3>{f.title}</h3>
-                  <p>{f.body}</p>
-                </article>
+              features.map((f, i) => (
+                <div class="feature">
+                  <dt>
+                    <span class="sr-only">{String(i + 1).padStart(2, '0')}. </span>
+                    {f.title}
+                  </dt>
+                  <dd>{f.body}</dd>
+                </div>
               ))
             }
-          </div>
+          </dl>
         </div>
       </section>
 
@@ -227,7 +288,6 @@ const features = [
       <section class="section" id="governed">
         <div class="wrap trust">
           <div class="section__head" style="margin-bottom:0;max-width:38ch">
-            <p class="eyebrow">Governed by design</p>
             <h2>The AI works for you — with the brakes on.</h2>
             <p>
               Autonomy without accountability is a liability. Relaya is built the other way around:
@@ -247,7 +307,7 @@ const features = [
                 ],
                 [
                   'Tenant isolation at the database',
-                  'Forced row-level security keyed to each workspace. A bug in the app cannot leak across tenants.',
+                  'Forced row-level security isolates workspaces independently of application-level query logic.',
                 ],
                 [
                   'Password-less sign-in',
@@ -285,15 +345,15 @@ const features = [
       <!-- CTA -->
       <section class="wrap">
         <div class="cta">
-          <h2>Bring your own inbox. Keep your own judgement.</h2>
+          <p class="cta__pilot">Private pilot</p>
+          <h2>Bring your inbox. Keep your judgement.</h2>
           <p>
-            Connect your email and calendar, and Relaya builds the whole loop — connect, remember,
-            understand, act — from the conversations you already have. You stay in control at every
-            step.
+            Tell us where customer context gets lost today. We’ll reply personally to confirm fit,
+            answer security questions, and agree the smallest useful pilot.
           </p>
           <div class="cta__row">
-            <a class="btn btn--onDeep" href={app}>Get started</a>
-            <a class="btn btn--ghostDeep" href={docs}>Read the docs</a>
+            <a class="btn btn--onDeep" href={pilot}>Request pilot</a>
+            <a class="btn btn--ghostDeep" href={signIn}>Sign in</a>
           </div>
         </div>
       </section>
@@ -302,22 +362,19 @@ const features = [
     <footer class="footer">
       <div class="wrap">
         <div class="footer__top">
-          <p class="footer__statement">
-            Customer evidence, transformed into governed action.
-          </p>
-          <div class="footer__col">
-            <h4>Product</h4>
+          <div class="footer__mast">
+            <a class="footer__brand" href="/">
+              <img src={mark.src} alt="" width="28" height="28" />
+              Relaya
+            </a>
+            <p>Customer evidence, transformed into governed action.</p>
+          </div>
+          <div class="footer__links" aria-label="Product and company links">
             <a href="/why">Why Relaya</a>
             <a href="#how">How it works</a>
-            <a href="#features">Features</a>
-            <a href="#governed">Governance</a>
-          </div>
-          <div class="footer__col">
-            <h4>Documentation</h4>
-            <a href="/docs/introduction">Welcome</a>
-            <a href="/docs/sign-in">Get started</a>
-            <a href="/docs/using/today">Using Relaya</a>
-            <a href="/docs/trust/security">Trust & privacy</a>
+            <a href={docs}>Docs</a>
+            <a href="/docs/trust/security">Trust</a>
+            <a href={signIn}>Sign in</a>
           </div>
         </div>
         <div class="footer__bottom">

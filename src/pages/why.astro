@@ -9,7 +9,9 @@ const title = 'Why Relaya — the CRM that keeps its own data clean';
 const description =
   'Everyone is bolting agents onto CRM. They fail on stale, dirty data. Relaya starts one layer down — a CRM that builds itself from your conversations and keeps every inference tied to evidence.';
 const docs = '/docs/introduction';
-const app = 'https://app.relayahq.com/login';
+const signIn = 'https://app.relayahq.com/login';
+const pilot =
+  'mailto:support@relayahq.com?subject=Relaya%20private%20pilot&body=Hi%20Relaya%20team%2C%0A%0AI%27d%20like%20to%20learn%20more%20about%20the%20private%20pilot.%0A%0ACompany%3A%0ATeam%20size%3A%0ACurrent%20CRM%3A%0A';
 
 const pillars = [
   {
@@ -56,6 +58,11 @@ const boundaries = [
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://relayahq.com/why/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="canonical" href="https://relayahq.com/why/" />
   </head>
   <body>
     <header class="nav">
@@ -64,15 +71,10 @@ const boundaries = [
           <img class="brand__mark" src={mark.src} alt="" width="26" height="26" />
           Relaya
         </a>
-        <nav class="nav__links" aria-label="Primary">
-          <a href="/why">Why Relaya</a>
-          <a href="/#how">How it works</a>
-          <a href="/#features">Features</a>
-          <a href={docs}>Docs</a>
-        </nav>
         <span class="nav__spacer"></span>
         <div class="nav__cta">
-          <a class="btn btn--primary" href={app}>Get started</a>
+          <a class="nav__signin" href={signIn}>Sign in</a>
+          <a class="btn btn--primary" href={pilot}>Request pilot</a>
         </div>
       </div>
     </header>
@@ -125,7 +127,6 @@ const boundaries = [
       <section class="section">
         <div class="wrap">
           <div class="section__head">
-            <p class="eyebrow">How it stays clean</p>
             <h2>The loop that maintains itself.</h2>
             <p>
               Three principles keep the record honest without anyone babysitting it — and keep every
@@ -174,7 +175,6 @@ const boundaries = [
       <section class="section">
         <div class="wrap">
           <div class="section__head">
-            <p class="eyebrow">On purpose</p>
             <h2>What Relaya won't do.</h2>
             <p>Focus is a feature. These are deliberate boundaries that keep the record trustworthy.</p>
           </div>
@@ -195,14 +195,15 @@ const boundaries = [
       <section class="section">
         <div class="wrap">
           <div class="cta">
+            <p class="cta__pilot">Private pilot</p>
             <h2>A CRM that stays clean enough to trust an agent — and shows its work.</h2>
             <p>
               For teams that run on email and are tired of a CRM that rots the moment data entry
               slips. Bring your inbox; Relaya does the upkeep.
             </p>
             <div class="cta__row">
-              <a class="btn btn--onDeep" href={app}>Get started</a>
-              <a class="btn btn--ghostDeep" href={docs}>Read the docs</a>
+              <a class="btn btn--onDeep" href={pilot}>Request pilot</a>
+              <a class="btn btn--ghostDeep" href={signIn}>Sign in</a>
             </div>
           </div>
         </div>
@@ -212,20 +213,19 @@ const boundaries = [
     <footer class="footer">
       <div class="wrap">
         <div class="footer__top">
-          <p class="footer__statement">Customer evidence, transformed into governed action.</p>
-          <div class="footer__col">
-            <h4>Product</h4>
+          <div class="footer__mast">
+            <a class="footer__brand" href="/">
+              <img src={mark.src} alt="" width="28" height="28" />
+              Relaya
+            </a>
+            <p>Customer evidence, transformed into governed action.</p>
+          </div>
+          <div class="footer__links" aria-label="Product and company links">
             <a href="/why">Why Relaya</a>
             <a href="/#how">How it works</a>
-            <a href="/#features">Features</a>
-            <a href="/#governed">Governance</a>
-          </div>
-          <div class="footer__col">
-            <h4>Documentation</h4>
-            <a href="/docs/introduction">Welcome</a>
-            <a href="/docs/sign-in">Get started</a>
-            <a href="/docs/using/today">Using Relaya</a>
-            <a href="/docs/trust/security">Trust &amp; privacy</a>
+            <a href={docs}>Docs</a>
+            <a href="/docs/trust/security">Trust</a>
+            <a href={signIn}>Sign in</a>
           </div>
         </div>
         <div class="footer__bottom">
@@ -250,7 +250,11 @@ const boundaries = [
       }
       .why-hero__title .accent {
         color: var(--color-accent-strong);
-        font-style: italic;
+        font-style: normal;
+        text-decoration: underline;
+        text-decoration-color: var(--color-accent);
+        text-decoration-thickness: 0.06em;
+        text-underline-offset: 0.12em;
       }
       .why-hero__lead {
         max-width: 60ch;
