@@ -4,6 +4,7 @@ import '@fontsource-variable/inter';
 import '../styles/tokens.css';
 import '../styles/landing.css';
 import mark from '../assets/mark.svg';
+import PilotFallback from '../components/PilotFallback.astro';
 
 const title = 'Relaya — the AI-native CRM that builds itself';
 const description =
@@ -11,7 +12,7 @@ const description =
 const docs = '/docs/introduction';
 const signIn = 'https://app.relayahq.com/login';
 const pilot =
-  'mailto:support@relayahq.com?subject=Relaya%20private%20pilot&body=Hi%20Relaya%20team%2C%0A%0AI%27d%20like%20to%20learn%20more%20about%20the%20private%20pilot.%0A%0ACompany%3A%0ATeam%20size%3A%0ACurrent%20CRM%3A%0A';
+  'mailto:support@nayma.ai?subject=Relaya%20private%20pilot&body=Hi%20Relaya%20team%2C%0A%0AI%27d%20like%20to%20learn%20more%20about%20the%20private%20pilot.%0A%0ACompany%3A%0ATeam%20size%3A%0ACurrent%20CRM%3A%0A';
 
 const steps = [
   {
@@ -378,9 +379,10 @@ const features = [
           </div>
         </div>
         <div class="footer__bottom">
-          <span>© {new Date().getFullYear()} Relaya. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} Relaya. A product by <a href="https://nayma.ai" target="_blank" rel="noreferrer">NAYMA</a>.</span>
         </div>
       </div>
     </footer>
+    <PilotFallback />
   </body>
 </html>

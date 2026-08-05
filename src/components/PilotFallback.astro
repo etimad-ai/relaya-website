@@ -1,0 +1,131 @@
+<script>
+  function emailFromHref(href) {
+    const m = href.match(/^mailto:([^?]+)/i);
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+
+  function removeToast() {
+    document.querySelectorAll('.pilot-fallback').forEach((el) => el.remove());
+  }
+
+  function showToast(address) {
+    removeToast();
+
+    const toast = document.createElement('div');
+    toast.className = 'pilot-fallback';
+    toast.setAttribute('role', 'dialog');
+    toast.setAttribute('aria-live', 'polite');
+    toast.innerHTML = `
+      <div class="pilot-fallback__card">
+        <p class="pilot-fallback__title">No email app opened?</p>
+        <p class="pilot-fallback__body">
+          Write to <b>${address}</b> with the subject "Relaya private pilot", or copy the address
+          into your email client.
+        </p>
+        <div class="pilot-fallback__actions">
+          <a class="btn btn--primary" href="mailto:${address}">Open email app</a>
+          <button type="button" class="btn btn--ghost" data-copy>Copy address</button>
+          <button type="button" class="pilot-fallback__close" aria-label="Close" data-close>&times;</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(toast);
+
+    toast.querySelector('[data-close]').addEventListener('click', removeToast);
+    toast.querySelector('[data-copy]').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(address);
+      } catch {
+        const ta = document.createElement('textarea');
+        ta.value = address;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+      }
+      const btn = toast.querySelector('[data-copy]');
+      btn.textContent = 'Copied';
+    });
+    toast.addEventListener('click', (e) => {
+      if (e.target === toast) removeToast();
+    });
+
+    window.setTimeout(() => {
+      if (document.body.contains(toast)) removeToast();
+    }, 12000);
+  }
+
+  document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const isTouch =
+        (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) ||
+        window.matchMedia('(pointer: coarse)').matches;
+
+      if (!isTouch) {
+        e.preventDefault();
+        window.location.href = 'https://nayma.ai/contact';
+        return;
+      }
+
+      const address = emailFromHref(link.getAttribute('href') || '');
+      if (!address) return;
+      window.setTimeout(() => showToast(address), 250);
+    });
+  });
+</script>
+
+<style>
+  .pilot-fallback {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: var(--space-5);
+    background: rgb(0 0 0 / 0.45);
+  }
+  .pilot-fallback__card {
+    position: relative;
+    max-width: 30rem;
+    width: 100%;
+    padding: var(--space-6);
+    border: var(--rule);
+    border-radius: var(--radius-lg);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 0.35);
+  }
+  .pilot-fallback__title {
+    font-family: var(--font-display);
+    font-weight: var(--weight-strong);
+    font-size: var(--text-title);
+    margin-bottom: var(--space-3);
+  }
+  .pilot-fallback__body {
+    color: var(--color-ink-soft);
+    line-height: 1.5;
+    margin-bottom: var(--space-5);
+    overflow-wrap: anywhere;
+  }
+  .pilot-fallback__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    align-items: center;
+  }
+  .pilot-fallback__close {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-4);
+    border: 0;
+    background: none;
+    color: var(--color-muted);
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .pilot-fallback__close:hover {
+    color: var(--color-ink);
+  }
+</style>
